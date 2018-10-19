@@ -123,4 +123,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo(POKER_HANDS.STRAIGHT);
     });
+
+    it('should give STRAIGHT FLUSH when hand has five cards that are consecutive in face value and are of the same suit', () => {
+        hand = Hand([
+            Card(SUITS.CLUBS, FACES.FOUR),
+            Card(SUITS.CLUBS, FACES.SIX),
+            Card(SUITS.CLUBS, FACES.SEVEN),
+            Card(SUITS.CLUBS, FACES.EIGHT),
+            Card(SUITS.CLUBS, FACES.FIVE)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.STRAIGHT_FLUSH);
+    });
 });

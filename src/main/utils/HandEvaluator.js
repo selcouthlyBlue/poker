@@ -25,6 +25,10 @@ function hasFourOfAKind(cards) {
     return hasNumberOfCardsOfAKind(cards, 4);
 }
 
+function isStraightFlush(cards) {
+    return isFlush(cards) && isStraight(cards);
+}
+
 function isFlush(cards) {
     let requiredSuit = cards[0].getSuit();
     return cards.every(card => card.getSuit() === requiredSuit);
@@ -76,6 +80,9 @@ function hasPair(cards) {
 class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
+        if (isStraightFlush(cards)) {
+            return POKER_HANDS.STRAIGHT_FLUSH;
+        }
         if (isFullHouse(cards)) {
             return POKER_HANDS.FULL_HOUSE;
         }
