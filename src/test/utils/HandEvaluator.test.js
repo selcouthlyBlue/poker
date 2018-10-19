@@ -43,4 +43,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo("TWO PAIR");
     });
+
+    it('should give THREE OF A KIND when hand has a trio', () => {
+        hand = Hand([
+            Card(SUITS.CLUBS, FACES.SEVEN),
+            Card(SUITS.DIAMONDS, FACES.SEVEN),
+            Card(SUITS.SPADES, FACES.SEVEN),
+            Card(SUITS.CLUBS, FACES.KING),
+            Card(SUITS.DIAMONDS, FACES.THREE)
+        ]);
+        handShouldEvaluateTo("THREE OF A KIND");
+    });
 });
