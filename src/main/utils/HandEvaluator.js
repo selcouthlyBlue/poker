@@ -29,6 +29,13 @@ function isFlush(cards) {
     return cards.every(card => card.getSuit() === requiredSuit);
 }
 
+function isStraight(cards) {
+    cards.sort((card, otherCard) => (card.compareByFace(otherCard)));
+    return cards.every((card, index) => (
+        index === cards.length - 1 || card.isOneRankHigherThan(cards[index + 1])
+    ));
+}
+
 function hasNumberOfCardsOfAKind(cards, requiredNumberOfCards) {
     let result = false;
     cards.forEach((card) => {
@@ -70,6 +77,9 @@ class HandEvaluator {
         }
         if (isFlush(cards)) {
             return POKER_HANDS.FLUSH;
+        }
+        if (isStraight(cards)) {
+            return POKER_HANDS.STRAIGHT;
         }
         if (hasFourOfAKind(cards)) {
             return POKER_HANDS.FOUR_OF_A_KIND;

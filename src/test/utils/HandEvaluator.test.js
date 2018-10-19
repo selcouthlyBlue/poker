@@ -88,4 +88,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo(POKER_HANDS.FULL_HOUSE);
     });
+
+    it('should give STRAIGHT when hand has five cards that are consecutive in face value', () => {
+        hand = Hand([
+            Card(SUITS.HEARTS, FACES.NINE),
+            Card(SUITS.DIAMONDS, FACES.FIVE),
+            Card(SUITS.SPADES, FACES.SIX),
+            Card(SUITS.CLUBS, FACES.SEVEN),
+            Card(SUITS.DIAMONDS, FACES.EIGHT)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.STRAIGHT);
+    });
 });

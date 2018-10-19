@@ -13,6 +13,14 @@ const Card = (suit, face) => {
         face === otherCard.getFace()
     )
 
+    card.compareByFace = (otherCard) => (
+        (face > otherCard.getFace()) ? -1 : ((otherCard.getFace() > face) ? 1 : 0)
+    )
+
+    card.isOneRankHigherThan = (otherCard) => {
+        return (face - otherCard.getFace()) === 1;
+    }
+
     return card;
 }
 
