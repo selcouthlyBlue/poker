@@ -1,7 +1,7 @@
 import Enum from "enum";
 
 const FACES = new Enum({
-    ACE: 1,
+    ACE: 14,
     TWO: 2,
     THREE: 3,
     FOUR: 4,

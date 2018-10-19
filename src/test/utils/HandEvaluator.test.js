@@ -12,6 +12,8 @@ describe('Evaluate poker hands', () => {
         expect(HandEvaluator.evaluate(hand)).toEqual(expected);
     }
 
+
+
     it('should give HIGH CARD when hand does not form a combination', () => {
         hand = Hand([
             Card(SUITS.DIAMONDS, FACES.THREE),
@@ -96,6 +98,28 @@ describe('Evaluate poker hands', () => {
             Card(SUITS.SPADES, FACES.SIX),
             Card(SUITS.CLUBS, FACES.SEVEN),
             Card(SUITS.DIAMONDS, FACES.EIGHT)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.STRAIGHT);
+    });
+
+    it('should give STRAIGHT when hand has five cards that are consecutive in face value and the highest card is an Ace', () => {
+        hand = Hand([
+            Card(SUITS.HEARTS, FACES.KING),
+            Card(SUITS.DIAMONDS, FACES.TEN),
+            Card(SUITS.SPADES, FACES.QUEEN),
+            Card(SUITS.CLUBS, FACES.ACE),
+            Card(SUITS.DIAMONDS, FACES.JACK)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.STRAIGHT);
+    })
+
+    it('should give STRAIGHT when hand has five cards that are consecutive in face value and the high card is a Five', () => {
+        hand = Hand([
+            Card(SUITS.HEARTS, FACES.ACE),
+            Card(SUITS.DIAMONDS, FACES.THREE),
+            Card(SUITS.SPADES, FACES.TWO),
+            Card(SUITS.CLUBS, FACES.FIVE),
+            Card(SUITS.DIAMONDS, FACES.FOUR)
         ]);
         handShouldEvaluateTo(POKER_HANDS.STRAIGHT);
     });

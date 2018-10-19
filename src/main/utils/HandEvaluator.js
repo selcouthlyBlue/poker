@@ -1,4 +1,5 @@
 import POKER_HANDS from "utils/POKER_HANDS";
+import FACES from "entity/FACES";
 
 function isFullHouse(cards) {
     let faceWithTrio;
@@ -31,6 +32,9 @@ function isFlush(cards) {
 
 function isStraight(cards) {
     cards.sort((card, otherCard) => (card.compareByFace(otherCard)));
+    if (cards[0].getFace() === FACES.ACE && cards[1].getFace() === FACES.FIVE) {
+        cards.shift();
+    }
     return cards.every((card, index) => (
         index === cards.length - 1 || card.isOneRankHigherThan(cards[index + 1])
     ));
