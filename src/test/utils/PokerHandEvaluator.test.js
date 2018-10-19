@@ -2,14 +2,14 @@ import Hand from "entity/Hand"
 import Card from "entity/Card";
 import SUITS from "entity/SUITS";
 import FACES from "entity/FACES";
-import HandEvaluator from "utils/HandEvaluator";
+import PokerHandEvaluator from "utils/PokerHandEvaluator";
 import POKER_HANDS from "utils/POKER_HANDS";
 
 describe('Evaluate poker hands', () => {
     let hand = [];
 
     function handShouldEvaluateTo(expected) {
-        expect(HandEvaluator.evaluate(hand)).toEqual(expected);
+        expect(PokerHandEvaluator.evaluate(hand)).toEqual(expected);
     }
 
 

@@ -82,7 +82,7 @@ function hasPair(cards) {
     return hasNumberOfCardsOfAKind(cards, 2);
 }
 
-class HandEvaluator {
+class PokerHandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
         if (isRoyalFlush(cards)) {
@@ -116,4 +116,4 @@ class HandEvaluator {
     }
 }
 
-export default HandEvaluator;
+export default PokerHandEvaluator;
