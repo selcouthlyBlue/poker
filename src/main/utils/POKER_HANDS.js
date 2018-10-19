@@ -1,16 +1,16 @@
 import Enum from "enum";
 
 const POKER_HANDS = new Enum({
-    HIGH_CARD: "HIGH CARD",
-    PAIR: "PAIR",
-    TWO_PAIR: "TWO PAIR",
-    THREE_OF_A_KIND: "THREE_OF_A_KIND",
-    FOUR_OF_A_KIND: "FOUR_OF_A_KIND",
-    FLUSH: "FLUSH",
-    FULL_HOUSE: "FULL HOUSE",
-    STRAIGHT: "STRAIGHT",
-    STRAIGHT_FLUSH: "STRAIGHT_FLUSH",
-    ROYAL_FLUSH: "ROYAL_FLUSH"
+    HIGH_CARD: 1,
+    PAIR: 2,
+    TWO_PAIR: 3,
+    THREE_OF_A_KIND: 4,
+    STRAIGHT: 5,
+    FLUSH: 6,
+    FULL_HOUSE: 7,
+    FOUR_OF_A_KIND: 8,
+    STRAIGHT_FLUSH: 9,
+    ROYAL_FLUSH: 10
 });
 
 export default POKER_HANDS;
