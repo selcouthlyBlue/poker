@@ -134,4 +134,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo(POKER_HANDS.STRAIGHT_FLUSH);
     });
+
+    it('should give ROYAL FLUSH when hand is a STRAIGHT FLUSH and the high card is an ace', () => {
+        hand = Hand([
+            Card(SUITS.DIAMONDS, FACES.ACE),
+            Card(SUITS.DIAMONDS, FACES.JACK),
+            Card(SUITS.DIAMONDS, FACES.KING),
+            Card(SUITS.DIAMONDS, FACES.QUEEN),
+            Card(SUITS.DIAMONDS, FACES.TEN)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.ROYAL_FLUSH);
+    });
 });

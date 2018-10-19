@@ -25,6 +25,11 @@ function hasFourOfAKind(cards) {
     return hasNumberOfCardsOfAKind(cards, 4);
 }
 
+function isRoyalFlush(cards) {
+    cards.sort((card, otherCard) => (card.compareByFace(otherCard)));
+    return isStraightFlush(cards) && cards[0].getFace() === FACES.ACE;
+}
+
 function isStraightFlush(cards) {
     return isFlush(cards) && isStraight(cards);
 }
@@ -80,6 +85,9 @@ function hasPair(cards) {
 class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
+        if (isRoyalFlush(cards)) {
+            return POKER_HANDS.ROYAL_FLUSH;
+        }
         if (isStraightFlush(cards)) {
             return POKER_HANDS.STRAIGHT_FLUSH;
         }
