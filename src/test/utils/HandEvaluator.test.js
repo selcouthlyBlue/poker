@@ -28,4 +28,16 @@ describe('Evaluate poker hands', () => {
         let result = HandEvaluator.evaluate(hand);
         expect(result).toEqual("PAIR");
     });
+
+    it('should give TWO PAIR when hand has two different pairs', () => {
+        let hand = Hand([
+            Card(SUITS.CLUBS, FACES.FOUR),
+            Card(SUITS.SPADES, FACES.FOUR),
+            Card(SUITS.CLUBS, FACES.THREE),
+            Card(SUITS.DIAMONDS, FACES.THREE),
+            Card(SUITS.CLUBS, FACES.QUEEN)
+        ]);
+        let result = HandEvaluator.evaluate(hand);
+        expect(result).toEqual("TWO PAIR");
+    });
 });

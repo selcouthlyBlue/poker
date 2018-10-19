@@ -1,3 +1,16 @@
+function hasTwoPair(cards) {
+    let facesWithPairs = new Set();
+    cards.forEach((card) => {
+        let cardsWithSameFace = cards.filter((otherCard) => (
+            card.hasSameFaceAs(otherCard)
+        ));
+        if (cardsWithSameFace.length === 2) {
+            facesWithPairs.add(card.getFace());
+        }
+    });
+    return facesWithPairs.size === 2;
+}
+
 function hasPair(cards) {
     let result = false;
     cards.forEach((card) => {
@@ -15,6 +28,9 @@ function hasPair(cards) {
 class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
+        if (hasTwoPair(cards)) {
+            return "TWO PAIR";
+        }
         if (hasPair(cards)) {
             return "PAIR";
         }
