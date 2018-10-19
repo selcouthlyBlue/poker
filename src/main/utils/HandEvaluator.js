@@ -1,3 +1,5 @@
+import POKER_HANDS from "utils/POKER_HANDS";
+
 function hasTrio(cards) {
     let result = false;
     cards.forEach((card) => {
@@ -43,15 +45,15 @@ class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
         if (hasTrio(cards)) {
-            return "THREE OF A KIND";
+            return POKER_HANDS.THREE_OF_A_KIND;
         }
         if (hasTwoPair(cards)) {
-            return "TWO PAIR";
+            return POKER_HANDS.TWO_PAIR;
         }
         if (hasPair(cards)) {
-            return "PAIR";
+            return POKER_HANDS.PAIR;
         }
-        return "HIGH CARD";
+        return POKER_HANDS.HIGH_CARD;
     }
 }
 

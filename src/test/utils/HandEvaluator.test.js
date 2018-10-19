@@ -3,6 +3,7 @@ import Card from "entity/Card";
 import SUITS from "entity/SUITS";
 import FACES from "entity/FACES";
 import HandEvaluator from "utils/HandEvaluator";
+import POKER_HANDS from "utils/POKER_HANDS";
 
 describe('Evaluate poker hands', () => {
     let hand = [];
@@ -19,7 +20,7 @@ describe('Evaluate poker hands', () => {
             Card(SUITS.HEARTS, FACES.FOUR),
             Card(SUITS.SPADES, FACES.TWO)
         ]);
-        handShouldEvaluateTo("HIGH CARD");
+        handShouldEvaluateTo(POKER_HANDS.HIGH_CARD);
     });
 
     it('should give PAIR when hand has a pair', () => {
@@ -30,7 +31,7 @@ describe('Evaluate poker hands', () => {
             Card(SUITS.SPADES, FACES.FOUR),
             Card(SUITS.HEARTS, FACES.SEVEN)
         ]);
-        handShouldEvaluateTo("PAIR");
+        handShouldEvaluateTo(POKER_HANDS.PAIR);
     });
 
     it('should give TWO PAIR when hand has two different pairs', () => {
@@ -41,7 +42,7 @@ describe('Evaluate poker hands', () => {
             Card(SUITS.DIAMONDS, FACES.THREE),
             Card(SUITS.CLUBS, FACES.QUEEN)
         ]);
-        handShouldEvaluateTo("TWO PAIR");
+        handShouldEvaluateTo(POKER_HANDS.TWO_PAIR);
     });
 
     it('should give THREE OF A KIND when hand has a trio', () => {
@@ -52,6 +53,6 @@ describe('Evaluate poker hands', () => {
             Card(SUITS.CLUBS, FACES.KING),
             Card(SUITS.DIAMONDS, FACES.THREE)
         ]);
-        handShouldEvaluateTo("THREE OF A KIND");
+        handShouldEvaluateTo(POKER_HANDS.THREE_OF_A_KIND);
     });
 });
