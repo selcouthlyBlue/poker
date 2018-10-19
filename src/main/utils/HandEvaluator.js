@@ -1,5 +1,25 @@
 import POKER_HANDS from "utils/POKER_HANDS";
 
+function isFullHouse(cards) {
+    let faceWithTrio;
+    cards.forEach((card) => {
+        let cardsWithSameFace = cards.filter((otherCard) => (
+            card.hasSameFaceAs(otherCard)
+        ));
+        if (cardsWithSameFace.length === 3) {
+            faceWithTrio = card.getFace();
+            return;
+        }
+    });
+    if (faceWithTrio) {
+        let cardsWithTrioRemoved = cards.filter((card) => (
+            card.getFace() !== faceWithTrio
+        ));
+        return hasPair(cardsWithTrioRemoved);
+    }
+    return false;
+}
+
 function hasFourOfAKind(cards) {
     return hasNumberOfCardsOfAKind(cards, 4);
 }
@@ -45,6 +65,9 @@ function hasPair(cards) {
 class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
+        if (isFullHouse(cards)) {
+            return POKER_HANDS.FULL_HOUSE;
+        }
         if (isFlush(cards)) {
             return POKER_HANDS.FLUSH;
         }

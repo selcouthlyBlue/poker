@@ -6,7 +6,8 @@ const POKER_HANDS = new Enum({
     TWO_PAIR: "TWO PAIR",
     THREE_OF_A_KIND: "THREE_OF_A_KIND",
     FOUR_OF_A_KIND: "FOUR_OF_A_KIND",
-    FLUSH: "FLUSH"
+    FLUSH: "FLUSH",
+    FULL_HOUSE: "FULL HOUSE"
 });
 
 export default POKER_HANDS;

@@ -77,4 +77,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo(POKER_HANDS.FLUSH);
     })
+
+    it('should give FULL HOUSE when hand has a trio and a pair', () => {
+        hand = Hand([
+            Card(SUITS.HEARTS, FACES.TEN),
+            Card(SUITS.DIAMONDS, FACES.TEN),
+            Card(SUITS.SPADES, FACES.TEN),
+            Card(SUITS.CLUBS, FACES.NINE),
+            Card(SUITS.DIAMONDS, FACES.NINE)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.FULL_HOUSE);
+    });
 });
