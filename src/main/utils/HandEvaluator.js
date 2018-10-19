@@ -1,8 +1,8 @@
 function hasPair(cards) {
     let result = false;
     cards.forEach((card) => {
-        let cardsWithSameFace = cards.filter((cardToFilter) => (
-            card.getFace() === cardToFilter.getFace()
+        let cardsWithSameFace = cards.filter((otherCard) => (
+            card.hasSameFaceAs(otherCard)
         ));
         if (cardsWithSameFace.length === 2) {
             result = true;

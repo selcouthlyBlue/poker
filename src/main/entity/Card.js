@@ -9,6 +9,10 @@ const Card = (suit, face) => {
         face
     )
 
+    card.hasSameFaceAs = (otherCard) => (
+        face === otherCard.getFace()
+    )
+
     return card;
 }
 
