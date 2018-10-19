@@ -66,4 +66,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo(POKER_HANDS.FOUR_OF_A_KIND);
     });
+
+    it('should give FLUSH when hand has five cards of the same suit', () => {
+        hand = Hand([
+            Card(SUITS.CLUBS, FACES.FOUR),
+            Card(SUITS.CLUBS, FACES.JACK),
+            Card(SUITS.CLUBS, FACES.EIGHT),
+            Card(SUITS.CLUBS, FACES.TWO),
+            Card(SUITS.CLUBS, FACES.NINE)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.FLUSH);
+    })
 });

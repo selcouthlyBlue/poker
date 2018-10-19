@@ -4,6 +4,11 @@ function hasFourOfAKind(cards) {
     return hasNumberOfCardsOfAKind(cards, 4);
 }
 
+function isFlush(cards) {
+    let requiredSuit = cards[0].getSuit();
+    return cards.every(card => card.getSuit() === requiredSuit);
+}
+
 function hasNumberOfCardsOfAKind(cards, requiredNumberOfCards) {
     let result = false;
     cards.forEach((card) => {
@@ -40,6 +45,9 @@ function hasPair(cards) {
 class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
+        if (isFlush(cards)) {
+            return POKER_HANDS.FLUSH;
+        }
         if (hasFourOfAKind(cards)) {
             return POKER_HANDS.FOUR_OF_A_KIND;
         }
