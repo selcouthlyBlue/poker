@@ -55,4 +55,15 @@ describe('Evaluate poker hands', () => {
         ]);
         handShouldEvaluateTo(POKER_HANDS.THREE_OF_A_KIND);
     });
+
+    it('should give FOUR OF A KIND when hand has a four cards with the same face', () => {
+        hand = Hand([
+            Card(SUITS.CLUBS, FACES.JACK),
+            Card(SUITS.DIAMONDS, FACES.JACK),
+            Card(SUITS.SPADES, FACES.JACK),
+            Card(SUITS.CLUBS, FACES.JACK),
+            Card(SUITS.DIAMONDS, FACES.SEVEN)
+        ]);
+        handShouldEvaluateTo(POKER_HANDS.FOUR_OF_A_KIND);
+    });
 });

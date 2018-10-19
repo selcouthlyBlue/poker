@@ -1,5 +1,19 @@
 import POKER_HANDS from "utils/POKER_HANDS";
 
+function hasFourOfAKind(cards) {
+    let result = false;
+    cards.forEach((card) => {
+        let cardsWithSameFace = cards.filter((otherCard) => (
+            card.hasSameFaceAs(otherCard)
+        ));
+        if (cardsWithSameFace.length === 4) {
+            result = true;
+            return;
+        }
+    });
+    return result;
+}
+
 function hasTrio(cards) {
     let result = false;
     cards.forEach((card) => {
@@ -44,6 +58,9 @@ function hasPair(cards) {
 class HandEvaluator {
     static evaluate(hand){
         let cards = hand.getCards();
+        if (hasFourOfAKind(cards)) {
+            return POKER_HANDS.FOUR_OF_A_KIND;
+        }
         if (hasTrio(cards)) {
             return POKER_HANDS.THREE_OF_A_KIND;
         }
