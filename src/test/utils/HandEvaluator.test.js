@@ -16,4 +16,16 @@ describe('Evaluate poker hands', () => {
         let result = HandEvaluator.evaluate(hand);
         expect(result).toEqual("HIGH CARD");
     });
+
+    it('should give PAIR when hand has a pair', () => {
+        let hand = Hand([
+            Card(SUITS.HEARTS, FACES.ACE),
+            Card(SUITS.DIAMONDS, FACES.ACE),
+            Card(SUITS.CLUBS, FACES.EIGHT),
+            Card(SUITS.SPADES, FACES.FOUR),
+            Card(SUITS.HEARTS, FACES.SEVEN)
+        ]);
+        let result = HandEvaluator.evaluate(hand);
+        expect(result).toEqual("PAIR");
+    });
 });

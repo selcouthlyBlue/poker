@@ -5,6 +5,10 @@ const Hand = (cards) => {
         cards[nthCardToReplace] = cardToPlace;
     }
 
+    hand.getCards = () => (
+        cards.slice()
+    )
+
     return hand;
 }
 
