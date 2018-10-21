@@ -1,5 +1,5 @@
 import POKER_HANDS from "utils/POKER_HANDS";
-import FACES from "entity/FACES";
+import FACES from "entity/deck-of-playing-cards/FACES";
 
 function isFullHouse(cards) {
     let faceWithTrio;

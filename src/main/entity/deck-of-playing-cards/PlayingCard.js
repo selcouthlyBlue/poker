@@ -1,4 +1,4 @@
-const Card = (suit, face) => {
+const PlayingCard = (suit, face) => {
     let card = {};
 
     card.getSuit = () => (
@@ -24,4 +24,4 @@ const Card = (suit, face) => {
     return card;
 }
 
-export default Card;
+export default PlayingCard;
