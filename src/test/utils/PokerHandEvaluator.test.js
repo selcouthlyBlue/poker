@@ -7,6 +7,7 @@ import POKER_HANDS from "utils/POKER_HANDS";
 
 describe('Evaluate poker hands', () => {
     let hand = [];
+	console.log('hello');
 
     function handShouldEvaluateTo(expected) {
         expect(PokerHandEvaluator.evaluate(hand)).toEqual(expected);
